@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نبرمج لك موقع ويب احترافي</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0a101a;
+            --bg-card: #121c2d;
+            --color-gold: #f5a623;
+            --color-gold-hover: #d48b1c;
+            --color-cyan: #46c7c7;
+            --color-text: #ffffff;
+            --color-text-muted: #a0aabf;
+            --border-color: #1e2a40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: var(--color-cyan); }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { text-decoration: none; color: var(--color-text); transition: 0.3s; }
+        nav ul li a:hover { color: var(--color-gold); }
+
+        .btn-gold {
+            background-color: var(--color-gold);
+            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-gold:hover { background-color: var(--color-gold-hover); }
+
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 60px 0; gap: 40px; }
+        .hero-content { flex: 1; }
+        .hero-image { flex: 1; text-align: center; }
+        .hero-image img { max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 0 30px rgba(70, 199, 199, 0.2); }
+
+        .badge-gold {
+            display: inline-block; border: 1px solid var(--color-gold); color: var(--color-gold);
+            padding: 5px 15px; border-radius: 20px; font-size: 14px; margin-bottom: 20px;
+        }
+
+        .hero-title { font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero-title span { color: var(--color-cyan); }
+        .hero-subtitle { font-size: 18px; color: var(--color-text-muted); margin-bottom: 30px; }
+
+        .price-box { border: 1px solid var(--color-gold); border-radius: 10px; padding: 20px; text-align: center; max-width: 300px; }
+        .price-box h3 { font-size: 20px; font-weight: normal; margin-bottom: 10px; }
+        .price-box .price { font-size: 50px; font-weight: bold; color: var(--color-cyan); line-height: 1;}
+        .price-box .currency { font-size: 18px; color: var(--color-text-muted); }
+
+        .features-bar {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;
+            background-color: var(--bg-card); padding: 30px; border-radius: 15px;
+            border: 1px solid var(--border-color); margin: 40px 0; text-align: center;
+        }
+        .feature-item i { font-size: 30px; color: var(--color-gold); margin-bottom: 15px; }
+        .feature-item p { font-size: 16px; font-weight: 500; }
+
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 40px; color: var(--color-text); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 60px; }
+
+        .project-card {
+            background-color: var(--bg-card); border-radius: 10px; overflow: hidden;
+            border: 1px solid var(--border-color); border-top: 3px solid var(--color-gold); text-align: center; transition: 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .project-card img { width: 100%; height: 150px; object-fit: cover; border-bottom: 1px solid var(--border-color); }
+        .project-card h4 { padding: 15px 15px 5px; color: var(--color-cyan); font-size: 18px; }
+        .project-card p { padding: 0 15px 15px; font-size: 14px; color: var(--color-text-muted); }
+
+        .cta-section { display: flex; gap: 20px; margin-bottom: 60px; }
+        .cta-box {
+            flex: 1; padding: 40px; border-radius: 15px; display: flex; align-items: center;
+            justify-content: center; gap: 20px; text-decoration: none; color: var(--color-text);
+        }
+        .cta-contact { background: linear-gradient(45deg, var(--color-cyan), #2980b9); }
+        .cta-start { background: linear-gradient(45deg, #111F33, #1A2E4C); border: 1px solid var(--border-color); }
+        .cta-box i { font-size: 40px; }
+        .cta-box h3 { font-size: 24px; margin-bottom: 5px; }
+
+        .contact-form-section {
+            background-color: var(--bg-card); padding: 40px; border-radius: 15px;
+            border: 1px solid var(--border-color); margin-bottom: 60px; position: relative;
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-control {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);
+            background-color: var(--bg-dark); color: white; outline: none;
+        }
+
+        /* رسالة النجاح */
+        #successMessage {
+            display: none; background-color: rgba(46, 204, 113, 0.2); color: #2ecc71;
+            border: 1px solid #2ecc71; padding: 15px; border-radius: 8px; text-align: center;
+            margin-bottom: 20px; font-weight: bold;
+        }
+
+        footer {
+            text-align: center; padding: 20px; border-top: 1px solid var(--border-color);
+            display: flex; justify-content: center; gap: 40px; color: var(--color-text-muted);
+        }
+        footer span i { color: var(--color-gold); margin-left: 5px; }
+
+        @media (max-width: 768px) {
+            .hero, .cta-section { flex-direction: column; text-align: center; }
+            .hero-title { font-size: 36px; }
+            nav ul { display: none; }
+            .price-box { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">LOGO<i class="fa-solid fa-code"></i></div>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">خدماتنا</a></li>
+                    <li><a href="#">أعمالنا</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-gold">تواصل الآن</a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge-gold">نبرمج لك</div>
+                <h1 class="hero-title">موقع ويب<br><span>احترافي</span></h1>
+                <p class="hero-subtitle">تصميم عصري | سرعة عالية | متوافق مع الجوال<br>كل ما تحتاجه لموقع ناجح</p>
+                <div class="price-box">
+                    <h3>— كل ذلك بـ —</h3>
+                    <div class="price">أقل من</div>
+                    <div class="price">5000</div>
+                    <div class="currency">جنيه</div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?q=80&w=800&auto=format&fit=crop" alt="Mockup">
+            </div>
+        </section>
+
+        <section id="contact" class="contact-form-section">
+            <h2 class="section-title">احجز موقعك الآن</h2>
+            
+            <div id="successMessage">تم إرسال طلبك بنجاح! سنتواصل معك قريباً.</div>
+
+            <form id="telegramForm">
+                <div class="form-group">
+                    <input type="text" id="customer_name" class="form-control" placeholder="الاسم الكريم" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone_number" class="form-control" placeholder="رقم الهاتف (واتساب)" required>
+                </div>
+                <div class="form-group">
+                    <select id="project_type" class="form-control" required>
+                        <option value="" disabled selected>اختر نوع الموقع الذي تريده...</option>
+                        <option value="صيدلية">موقع لصيدلية</option>
+                        <option value="متجر">موقع لمتجر / سوبر ماركت</option>
+                        <option value="شركة">موقع لشركة / مكتب</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-gold" style="width: 100%; font-size: 18px;">إرسال الطلب</button>
+            </form>
+        </section>
+
+        </div>
+
+    <script>
+        // التمرير السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ==========================================
+        // سكربت إرسال البيانات إلى تيلجرام
+        // ==========================================
+        document.getElementById('telegramForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // منع إعادة تحميل الصفحة
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = "جاري الإرسال..."; // تغيير نص الزر
+            btn.disabled = true;
+
+            // 1. ضع التوكن الخاص بالبوت هنا
+            const botToken = 'ضع_التوكن_هنا'; 
+            
+            // 2. ضع الـ Chat ID الخاص بك هنا
+            const chatId = 'ضع_الاي_دي_هنا';
+
+            // جلب القيم من الحقول
+            const name = document.getElementById('customer_name').value;
+            const phone = document.getElementById('phone_number').value;
+            const type = document.getElementById('project_type').value;
+
+            // تنسيق الرسالة التي ستصلك
+            const textMessage = `🚀 طلب تصميم موقع جديد!\n\n👤 الاسم: ${name}\n📞 رقم الهاتف: ${phone}\n🌐 نوع المشروع: ${type}`;
+
+            // إرسال البيانات باستخدام Fetch API
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: textMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    // إظهار رسالة النجاح ومسح الحقول
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('telegramForm').reset();
+                    btn.innerHTML = "إرسال الطلب";
+                    btn.disabled = false;
+                    
+                    // إخفاء رسالة النجاح بعد 5 ثواني
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    alert('حدث خطأ أثناء الإرسال. تأكد من صحة التوكن والـ ID.');
+                    btn.innerHTML = "إرسال الطلب";
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ في الاتصال بالإنترنت.');
+                btn.innerHTML = "إرسال الطلب";
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
