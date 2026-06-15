@@ -244,7 +244,11 @@
             const type = document.getElementById('project_type').value;
 
             // تنسيق الرسالة التي ستصلك
-            const textMessage = `🚀 طلب تصميم موقع جديد!\n\n👤 الاسم: ${name}\n\n📞 رقم الهاتف: <code>${phone}</code>\n\n🌐 نوع المشروع: ${type}`;
+            const textMessage = 
+            `🚀 طلب تصميم موقع جديد!\n\n
+            👤 الاسم: ${name}\n\n
+            📞 رقم الهاتف: ${phone}\n\n
+            🌐 نوع المشروع: ${type}`;
 
             // إرسال البيانات باستخدام Fetch API
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -269,7 +273,7 @@
                     // إخفاء رسالة النجاح بعد 5 ثواني
                     setTimeout(() => {
                         document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
+                    }, 4000);
                 } else {
                     alert('حدث خطأ أثناء الإرسال. تأكد من صحة التوكن والـ ID.');
                     btn.innerHTML = "إرسال الطلب";
