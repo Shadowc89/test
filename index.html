@@ -188,7 +188,7 @@
 
             <form id="telegramForm">
                 <div class="form-group">
-                    <input type="text" id="customer_name" class="form-control" placeholder="الاسم الكريم" required>
+                    <input type="text" id="customer_name" class="form-control" placeholder="الاسم بالكامل" required>
                 </div>
                 <div class="form-group">
                     <input type="tel" id="phone_number" class="form-control" placeholder="رقم الهاتف (واتساب)" required>
@@ -199,7 +199,12 @@
                         <option value="صيدلية">موقع لصيدلية</option>
                         <option value="متجر">موقع لمتجر / سوبر ماركت</option>
                         <option value="شركة">موقع لشركة / مكتب</option>
-                        <option value="أخرى">أخرى</option>
+                        <option value="مدونة">موقع لمدونة شخصية</option>
+                        <option value="موقع تعليمي">موقع تعليمي / أكاديمي</option>
+                        <option value="موقع خدمات">موقع لتقديم خدمات (مثل صيانة، تنظيف، ...)</option>
+                        <option value="موقع ترفيهي">موقع ترفيهي (مثل نادي، منتدى، ...)</option>
+                        <option value="موقع شخصي">موقع شخصي / معرض أعمال</option>
+                        <option value="موقع آخر">نوع آخر (يرجى التوضيح في الرسالة)</option>
                     </select>
                 </div>
                 <button type="submit" id="submitBtn" class="btn-gold" style="width: 100%; font-size: 18px;">إرسال الطلب</button>
@@ -239,7 +244,7 @@
             const type = document.getElementById('project_type').value;
 
             // تنسيق الرسالة التي ستصلك
-            const textMessage = `🚀 طلب تصميم موقع جديد!\n\n👤 الاسم: ${name}\n📞 رقم الهاتف: ${phone}\n🌐 نوع المشروع: ${type}`;
+            const textMessage = `🚀 طلب تصميم موقع جديد!\n\n👤 الاسم: ${name}\n\n📞 رقم الهاتف: <code>${phone}</code>\n\n🌐 نوع المشروع: ${type}`;
 
             // إرسال البيانات باستخدام Fetch API
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
